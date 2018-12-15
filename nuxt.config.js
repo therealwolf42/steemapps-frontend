@@ -1,4 +1,4 @@
-require('dotenv').config({path: './.env'})
+require('dotenv').config({ path: './.env' })
 
 const env = {
   apiUrl: process.env.API_URL || 'http://localhost:5000/api/',
@@ -52,7 +52,11 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/sentry',
-    '@nuxtjs/router'
+    '@nuxtjs/router',
+    ['@nuxtjs/google-analytics', {
+      id: env.googleAnalytics
+    }]
+
   ],
   /*
   ** Axios module configuration
@@ -125,7 +129,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+
     }
   }
 }
