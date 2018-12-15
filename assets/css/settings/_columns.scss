@@ -1,0 +1,38 @@
+@mixin app-rankings-widths {
+  .column {
+    padding: 0 7px;
+    &.-rank {
+      width: 90px; 
+    }
+    &.-dapp {
+      width: 215px;   
+    }
+    &.-tagline {
+      flex: 1;
+    }   
+    &.-profile {
+      width: 85px; 
+      text-align: right;   
+    }
+    &.-dau {
+      width: 150px;
+      text-align: right;
+    }
+    &.-mau {
+      width: 150px;
+      text-align: right;
+    }
+    &.-dev_30d {
+      width: 125px;
+      text-align: right;
+    }
+    &.-vol_7d {
+      width: 125px;
+      text-align: right;
+    }
+    &.-users_30d {
+      width: 150px;
+      text-align: right;     
+    }
+  }
+}
