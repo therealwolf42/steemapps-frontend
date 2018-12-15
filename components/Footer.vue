@@ -2,7 +2,7 @@
   <div class="component-footer">
     <div class="main">
       <p class="info-text">Interested in having your App listed here? A submit option will be available soon, but for now, please join our discord server: <a href="https://discord.gg/ug4HdcU" target="_blank">https://discord.gg/ug4HdcU</a></p>
-      <p class="info-text">Info: This app is currently in Alpha, some of the data might not be 100% accurate and not all apps are listed yet. For more info - feel free to read <a href="https://steemit.com/steem/@therealwolf/alpha-steemapps-com-the-frontpage-for-apps-on-steem" target="_blank">this article</a>.</p>
+      <p class="info-text">Info: This web-app is currently in Alpha, some of the data might not be 100% accurate and not all apps are listed yet. For more info - feel free to read <a href="https://steemit.com/steem/@therealwolf/alpha-steemapps-com-the-frontpage-for-apps-on-steem" target="_blank">this article</a>.</p>
       <p class="made-text">Made with <span style="color:black;">🔥</span> by <a href="https://steemit.com/@therealwolf" target="_blank">@therealwolf</a></p>
     </div>
   </div>

@@ -34,7 +34,6 @@ export default {
     if (!query.sort) urlParams.sort = 'rank'
     if (!query.order) urlParams.order = 'asc'
     if (!query.time) urlParams.time = app.time_selection_converted
-    if (!query.all) urlParams.all = true
     const data = await getApps(app.$axios, urlParams)
     return { apps: data.apps }
   },
@@ -52,7 +51,6 @@ export default {
       if (!this.$route.query.sort) urlParams.sort = 'rank'
       if (!this.$route.query.order) urlParams.order = 'asc'
       if (!this.$route.query.time) urlParams.time = this.time_selection_converted
-      if (!this.$route.query.all) urlParams.all = true
       
       console.log(urlParams)
       const data = await getApps(this.$axios, urlParams)
