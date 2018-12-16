@@ -1,5 +1,9 @@
 import Vue from "vue";
 
+const sort_arr = ['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd']
+const time_arr = ['last_day', 'last_week', 'last_month']
+const order_arr = ['asc', 'desc']
+
 const state = () => ({
   display_columns: {
     rank_24h: false,
@@ -48,12 +52,13 @@ const actions = {
     if (selection === '7d') converted = 'last_week'
     if (selection === '30d') converted = 'last_month'
     commit('setTimeSelection', { selection, converted })
-    console.log(this.$router.currentRoute.query)
+
     let sort = this.$router.currentRoute.query.sort
     let order = this.$router.currentRoute.query.order
+    
     let q = { time: converted }
-    if (sort) q.sort = sort
-    if (order) q.order = order
+    if (sort && sort_arr.includes(sort)) q.sort = sort
+    if (order && order_arr.includes(order)) q.order = order
     this.$router.push({ query: q })
   }
 }
