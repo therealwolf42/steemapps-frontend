@@ -49,7 +49,12 @@ const actions = {
     if (selection === '30d') converted = 'last_month'
     commit('setTimeSelection', { selection, converted })
     console.log(this.$router.currentRoute.query)
-    this.$router.push({query: { sort: this.$router.currentRoute.query.sort, order: this.$router.currentRoute.query.order, time: converted }})
+    let sort = this.$router.currentRoute.query.sort
+    let order = this.$router.currentRoute.query.order
+    let q = { time: converted }
+    if (sort) q.sort = sort
+    if (order) q.order = order
+    this.$router.push({ query: q })
   }
 }
 
