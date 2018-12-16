@@ -1,9 +1,5 @@
 import Vue from "vue";
 
-const sort_arr = ['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd']
-const time_arr = ['last_day', 'last_week', 'last_month']
-const order_arr = ['asc', 'desc']
-
 const state = () => ({
   display_columns: {
     rank_24h: false,
@@ -31,14 +27,17 @@ const state = () => ({
     rewards_sbd_30d: false
   },
   time_selection: '7d', // 24h || 7d
-  time_selection_converted: 'last_week'
+  time_selection_converted: 'last_week',
+  sort_arr: ['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'],
+  order_arr: ['asc', 'desc'],
+  time_arr: ['last_day', 'last_week', 'last_month']
 })
 
 const actions = {
   displayColumn({ state, commit }, { column, toggle }) {
     commit('setDisplayColumn', { column, toggle })
   },
-  changeTimeSelection({ commit }, selection) {
+  changeTimeSelection({ state, commit }, selection) {
     for (let column of ['rank_', 'users_', 'tx_', 'volume_steem_', 'volume_sbd_', 'rewards_steem_']) {
       let others = selection === '24h' ? ['7d', '30d'] : (selection === '7d' ? ['24h', '30d'] : ['24h', '7d'])
       for (let other of others) {
@@ -55,10 +54,10 @@ const actions = {
 
     let sort = this.$router.currentRoute.query.sort
     let order = this.$router.currentRoute.query.order
-    
+
     let q = { time: converted }
-    if (sort && sort_arr.includes(sort)) q.sort = sort
-    if (order && order_arr.includes(order)) q.order = order
+    if (sort && state.sort_arr.includes(sort)) q.sort = sort
+    if (order && state.order_arr.includes(order)) q.order = order
     this.$router.push({ query: q })
   }
 }
@@ -85,6 +84,15 @@ const getters = {
   },
   time_selection_converted: state => {
     return state.time_selection_converted
+  },
+  sort_arr: state => {
+    return state.sort_arr
+  },
+  order_arr: state => {
+    return state.order_arr
+  },
+  time_arr: state => {
+    return state.time_arr
   }
 }
 

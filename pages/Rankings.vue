@@ -18,6 +18,15 @@ export default {
   computed: {
     time_selection_converted() {
       return this.$store.getters['apps/rankings/time_selection_converted']
+    },
+    order_arr() {
+      return this.$store.getters['apps/rankings/order_arr']
+    },
+    sort_arr() {
+      return this.$store.getters['apps/rankings/sort_arr']
+    },
+    time_arr() {
+      return this.$store.getters['apps/rankings/time_arr']
     }
   },
   components: {
@@ -31,9 +40,9 @@ export default {
   },
   async asyncData({ params, query, app }) {
     const urlParams = { ...params, ...query }
-    if (!query.sort) urlParams.sort = 'rank'
-    if (!query.order) urlParams.order = 'asc'
-    if (!query.time) urlParams.time = app.time_selection_converted
+    if (!query.sort || !['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'].includes(query.sort)) urlParams.sort = 'rank'
+    if (!query.order || !['asc', 'desc'].includes(query.order)) urlParams.order = 'asc'
+    if (!query.time || !['last_day', 'last_week', 'last_month'].includes(query.time)) urlParams.time = app.time_selection_converted
     const data = await getApps(app.$axios, urlParams)
     return { apps: data.apps }
   },
@@ -48,11 +57,10 @@ export default {
       //this.resetData()
       this.isLoading = true
       const urlParams = { ...this.$route.params, ...this.$route.query }
-      if (!this.$route.query.sort) urlParams.sort = 'rank'
-      if (!this.$route.query.order) urlParams.order = 'asc'
-      if (!this.$route.query.time) urlParams.time = this.time_selection_converted
-      
-      console.log(urlParams)
+      if (!this.$route.query.sort || !['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'].includes(this.$route.query.sort)) urlParams.sort = 'rank'
+      if (!this.$route.query.order || !['asc', 'desc'].includes(this.$route.query.order)) urlParams.order = 'asc'
+      if (!this.$route.query.time || !['last_day', 'last_week', 'last_month'].includes(this.$route.query.time)) urlParams.time = this.time_selection_converted
+
       const data = await getApps(this.$axios, urlParams)
       this.isLoading = false
       this.apps = data.apps

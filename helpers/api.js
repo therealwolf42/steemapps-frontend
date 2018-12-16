@@ -4,8 +4,12 @@ export async function getCategories(axios) {
 }
 
 export async function getApps(axios, params) {
-  const payload = await axios.get(`apps/`, {
-    params
-  })
-  return payload.data
+  try {
+    const payload = await axios.get(`apps/`, {
+      params
+    })
+    return payload.data
+  } catch (error) {
+    console.error('getApps', error)
+  }
 }
