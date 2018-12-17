@@ -40,10 +40,13 @@ export default {
   },
   async asyncData({ params, query, app }) {
     const urlParams = { ...params, ...query }
-    if (!query.sort || !['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'].includes(query.sort)) urlParams.sort = 'rank'
-    if (!query.order || !['asc', 'desc'].includes(query.order)) urlParams.order = 'asc'
-    if (!query.time || !['last_day', 'last_week', 'last_month'].includes(query.time)) urlParams.time = app.time_selection_converted
-    const data = await getApps(app.$axios, urlParams)
+    let q = {}
+    q.sort = !query.sort || !['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'].includes(query.sort) ? q.sort = 'rank' : query.sort
+    q.order = !query.order || !['asc', 'desc'].includes(query.order) ? 'asc' : query.order
+    q.time = !query.time || !['last_day', 'last_week', 'last_month'].includes(query.time) ? 'last_week' : query.time
+
+    console.log(params)
+    const data = await getApps(app.$axios, q)
     return { apps: data.apps }
   },
   watch: {

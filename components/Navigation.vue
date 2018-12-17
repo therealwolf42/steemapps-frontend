@@ -11,7 +11,7 @@
           </div>
         </nuxt-link>
       </div>
-      <div class="table-top-wrapper">
+      <div v-if="$route.name === 'home'" class="table-top-wrapper">
         <RankingTableTime class="nav-ranking-table-time"/>
       </div>
     </div>
@@ -24,6 +24,8 @@ import RankingTableTime from '~/components/RankingTable/RankingTableTime'
 export default {
   components: {
     Logo, RankingTableTime
+  },
+  created() {
   }
 }
 </script>
