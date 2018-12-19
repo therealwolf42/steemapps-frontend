@@ -39,7 +39,7 @@ export default {
     }
   },
   async asyncData({ params, query, app }) {
-    let q = { ... params }
+    let q = { ...params }
     console.log('asyncData')
     console.log({q})
     q.sort = !query.sort || !['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'].includes(query.sort) ? q.sort = 'rank' : query.sort
