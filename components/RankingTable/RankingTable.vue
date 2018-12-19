@@ -352,13 +352,13 @@ export default {
 }
 
 .table-header {
-  min-height: 22px;
   margin: 0 -10px;
   padding: 15px 10px 15px 10px;
   background: $color--gray;
   position: sticky;
   top: 0;
   .table-row {
+    min-height: 22px;
     box-shadow: none;
     border-radius: 0;
     background: $color--gray;
