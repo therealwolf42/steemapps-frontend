@@ -1,12 +1,11 @@
 <template>
   <div class="component-footer">
     <div class="main">
-      <p class="info-text">Interested in having your App listed here? A submit option will be available soon, but for now, please join our discord server: <a href="https://discord.gg/ug4HdcU" target="_blank">https://discord.gg/ug4HdcU</a></p>
-      <p class="info-text" v-if="false">Info: This web-app is currently in Alpha, some of the data might not be 100% accurate and not all apps are listed yet. For more info - feel free to read <a href="https://steemit.com/steem/@therealwolf/alpha-steemapps-com-the-frontpage-for-apps-on-steem" target="_blank">this article</a>.</p>
+      <p class="info-text" v-if="$route.name.includes('rankings')">Interested in having your App listed here? A submit option will be available soon, but for now, please join our discord server: <a href="https://discord.gg/ug4HdcU" target="_blank">https://discord.gg/ug4HdcU</a></p>
+      <p class="info-text" v-if="$route.name.includes('rankings')">Info: Some of the data can't be pinned to specific Apps (for example: votes or passive users), which means the data is in reality quite higher than displayed; especially for interfaces. We're working on possible solutions, but the current blockchain data structure makes this difficult.<!--<a href="https://steemit.com/steem/@therealwolf/alpha-steemapps-com-the-frontpage-for-apps-on-steem" target="_blank">this article</a>.--></p>
       <p class="made-text">Made with <span style="color:black;">🔥</span> by <a href="https://steemit.com/@therealwolf" target="_blank">@therealwolf</a></p>
       <div class="nav">
-        
-        <nuxt-link :to="'/documentation'">API Documentation</nuxt-link>
+        <nuxt-link :to="'/documentation'" v-if="!$route.name.includes('documentation')">API Documentation</nuxt-link>
       </div>
     </div>
   </div>
@@ -29,7 +28,7 @@ export default {
 
 .main {
   min-height:40px;
-  padding: 25px 40px;
+  padding: 15px 40px;
 }
 
 .info-text, .made-text {
@@ -38,7 +37,7 @@ export default {
 
 .info-text {
   font-style:italic;
-  margin-bottom:14px;
+  margin-bottom:18px;
 }
 
 .made-text {

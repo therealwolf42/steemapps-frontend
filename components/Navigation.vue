@@ -11,7 +11,7 @@
           </div>
         </nuxt-link>
       </div>
-      <div v-if="$route.name === 'home'" class="table-top-wrapper">
+      <div v-if="$route.name.includes('rankings')" class="table-top-wrapper">
         <RankingTableTime class="nav-ranking-table-time"/>
       </div>
     </div>
@@ -41,7 +41,7 @@ export default {
 }
 
 .component-navigation-inner {
-  padding: 18px 30px 15px 30px;
+  padding: 18px 30px 5px 30px;
   display:flex;
   justify-content: space-between;
 }

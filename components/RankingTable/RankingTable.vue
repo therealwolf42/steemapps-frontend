@@ -93,7 +93,7 @@
                   :app_type="app.app_type"/>
               </div>
               <div v-if="display_columns.app_type" class="table-data col-app-type">
-                <AppTypeBody
+                <AppTypeBody @click="$store.dispatch('apps/rankings/changeSelectedAppType', `${app.app_type}`)"
                   :app_type="app.app_type"/>
               </div>
               
@@ -353,7 +353,7 @@ export default {
 
 .table-header {
   margin: 0 -10px;
-  padding: 5px 10px 15px 10px;
+  padding: 15px 10px 15px 10px;
   background: $color--gray;
   position: sticky;
   top: 0;
@@ -430,7 +430,11 @@ export default {
     display:flex;
     flex-flow:column;
     padding-bottom:10px;
+    padding-right:0;
+    margin: 20px 0;
   }
+
+  
 
   .table-data {
     width:100%;
@@ -446,6 +450,10 @@ export default {
     flex-flow:row;
     padding:5px 20px;
     min-height: 45px;
+  }
+
+  .col-name {
+    padding: 15px 20px;
   }
 
   .col-category {

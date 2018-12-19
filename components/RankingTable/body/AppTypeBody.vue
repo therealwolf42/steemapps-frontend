@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <div v-if="app_type.toLowerCase() === 'dapp'" class="is-general is-dapp">DApp</div>
-    <div v-if="app_type.toLowerCase() === 'app'" class="is-general is-app">App</div>
-    <div v-if="app_type.toLowerCase() === 'interface'" class="is-general is-interface">Interface</div>
+  <div class="component-ranking-table-apptype">
+    <nuxt-link
+      v-if="app_type"
+      :to="{ name: 'rankings-type', params: { type: app_type.toLowerCase() }}">
+      <div :class="`is-${app_type}`" class="is-general">
+        {{ app_type | capitalize }}
+      </div>
+    </nuxt-link>
   </div>
 </template>
 
@@ -20,16 +24,16 @@ export default {
 <style lang="scss" scoped>
 @import '~assets/css/settings';
 
-
 .is-general {
   font-size: 0.7rem;
   padding: 3px 15px 4.5px 15px;
   border-radius: 20px;
   color: white;
-  cursor:default;
+  cursor:pointer;
   width: fit-content;
   width:78px;
   text-align:center;
+  transition: all .2s ease-out;
 }
 
 .is-dapp {
@@ -37,13 +41,25 @@ export default {
   background-color: #bc17ff;
 }
 
+.is-dapp:hover {
+  background-color: #c330fd;
+}
+
 .is-interface {
-  background-color: #179eff;
+  background-color: #27a4fd;
   font-size: 0.75rem;
+}
+
+.is-interface:hover {
+  background-color: #33aaff;
 }
 
 .is-app {
   background-color: #6717ff;
+}
+
+.is-app {
+  background-color: #762cff;
 }
 
 .is-general {

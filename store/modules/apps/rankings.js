@@ -30,7 +30,8 @@ const state = () => ({
   time_selection_converted: 'last_week',
   sort_arr: ['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'],
   order_arr: ['asc', 'desc'],
-  time_arr: ['last_day', 'last_week', 'last_month']
+  time_arr: ['last_day', 'last_week', 'last_month'],
+  selected_app_type: ''
 })
 
 const actions = {
@@ -59,6 +60,9 @@ const actions = {
     if (sort && state.sort_arr.includes(sort)) q.sort = sort
     if (order && state.order_arr.includes(order)) q.order = order
     this.$router.push({ query: q })
+  },
+  changeSelectedAppType({ commit }, app_type) {
+    commit('setSelectedAppType', app_type)
   }
 }
 
@@ -72,6 +76,9 @@ const mutations = {
 
     Vue.set(state, 'time_selection', selection)
     Vue.set(state, 'time_selection_converted', converted)
+  },
+  setSelectedAppType(state, app_type) {
+    Vue.set(state, 'selected_app_type', app_type)
   }
 }
 
@@ -93,6 +100,9 @@ const getters = {
   },
   time_arr: state => {
     return state.time_arr
+  },
+  selected_app_type: state => {
+    return state.selected_app_type
   }
 }
 

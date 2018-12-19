@@ -64,7 +64,12 @@ export function createRouter() {
       {
         path: '/',
         component: Rankings,
-        name: 'home'
+        name: 'rankings'
+      },
+      {
+        path: '/type/:type',
+        component: Rankings,
+        name: 'rankings-type'
       },
       {
         path: '/documentation',
@@ -81,11 +86,7 @@ export function createRouter() {
         component: Rankings,
         name: 'rankings'
       },
-      {
-        path: '/rankings/category/:category',
-        component: Rankings,
-        name: 'rankings-category'
-      }*/
+      */
     ],
     fallback: false
   })

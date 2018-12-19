@@ -21,7 +21,7 @@
 export default {
   props: {
     parameters: {
-      type: String,
+      type: Array,
       required: true
     }
   }

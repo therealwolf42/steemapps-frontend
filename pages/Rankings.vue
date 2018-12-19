@@ -39,13 +39,11 @@ export default {
     }
   },
   async asyncData({ params, query, app }) {
-    const urlParams = { ...params, ...query }
-    let q = {}
+    let q = { ... params }
     q.sort = !query.sort || !['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'].includes(query.sort) ? q.sort = 'rank' : query.sort
     q.order = !query.order || !['asc', 'desc'].includes(query.order) ? 'asc' : query.order
     q.time = !query.time || !['last_day', 'last_week', 'last_month'].includes(query.time) ? 'last_week' : query.time
 
-    console.log(params)
     const data = await getApps(app.$axios, q)
     return { apps: data.apps }
   },
@@ -60,6 +58,7 @@ export default {
       //this.resetData()
       this.isLoading = true
       const urlParams = { ...this.$route.params, ...this.$route.query }
+      
       if (!this.$route.query.sort || !['rank', 'dau', 'tx', 'volume_steem', 'volume_sbd', 'rewards_steem', 'rewards_sbd'].includes(this.$route.query.sort)) urlParams.sort = 'rank'
       if (!this.$route.query.order || !['asc', 'desc'].includes(this.$route.query.order)) urlParams.order = 'asc'
       if (!this.$route.query.time || !['last_day', 'last_week', 'last_month'].includes(this.$route.query.time)) urlParams.time = this.time_selection_converted
