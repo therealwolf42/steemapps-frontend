@@ -5,6 +5,7 @@ export async function getCategories(axios) {
 
 export async function getApps(axios, params) {
   try {
+    console.log('api getApps', params)
     const payload = await axios.get(`apps/`, {
       params
     })
