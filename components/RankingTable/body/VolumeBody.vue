@@ -7,7 +7,7 @@
       v-else 
       class="value">{{ Number(value || 0).toLocaleString(undefined, {maximumFractionDigits: 0}) }} {{ asset }}</span>
     <span 
-      v-if="value_pct === null || value_pct === 0 || !value_pct" 
+      v-if="value_pct === null || value_pct === 0 || !value_pct || value_pct < -100" 
       class="pct"></span>
     <span 
       v-else 

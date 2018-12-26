@@ -1,5 +1,8 @@
 <template>
   <div class="layout-default">
+    <no-ssr>
+    <notifications position="top center" />
+    </no-ssr>
     <div class="wrapper">
       <div class="main">
         <Navigation/>
@@ -12,7 +15,7 @@
 
 <script>
 import Navigation from '~/components/Navigation.vue'
-import Footer from '~/components/Footer.vue'
+import Footer from '~/components/Footer/Footer.vue'
 export default {
   components: {
     Navigation, Footer
@@ -32,7 +35,7 @@ export default {
 .main {
   min-height: 98%;
   position: relative;
-  min-height:768px;
+  min-height:750px;
 }
 
 

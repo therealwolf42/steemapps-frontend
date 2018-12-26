@@ -29,7 +29,8 @@ module.exports = {
   plugins: [
     //{ src: '~/plugins/ant-design-vue.js', ssr: false },
     { src: '~/plugins/vue-filters' },
-    { src: '~/plugins/axios' }
+    { src: '~/plugins/axios' },
+    { src: '~/plugins/vue-notification', ssr: false }
   ],
 
   /*

@@ -1,7 +1,8 @@
 <template>
-  <div class="component-ranking-table-time">
-    <div v-bind:class="{ active: time_selection === '24h' }" class="option-wrapper option-wrapper-left" @click="$store.dispatch('apps/rankings/changeTimeSelection', '24h')">24h</div>
-    <div v-bind:class="{ active: time_selection === '7d' }" class="option-wrapper option-wrapper-right" @click="$store.dispatch('apps/rankings/changeTimeSelection', '7d')">7d</div>
+  <div class="component-ranking-table-time" v-bind:class="{ active_left: time_selection === '24h', active_mid: time_selection === '7d', active_right: time_selection === '30d' }">
+    <div v-bind:class="{ active: time_selection === '24h', inactive: time_selection !== '24h' }" class="option-wrapper option-wrapper-left" @click="$store.dispatch('apps/rankings/changeTimeSelection', '24h')">24h</div>
+    <div v-bind:class="{ active: time_selection === '7d', inactive: time_selection !== '7d' }" class="option-wrapper option-wrapper-middle" @click="$store.dispatch('apps/rankings/changeTimeSelection', '7d')">7d</div>
+    <div v-bind:class="{ active: time_selection === '30d', inactive: time_selection !== '30d' }" class="option-wrapper option-wrapper-right" @click="$store.dispatch('apps/rankings/changeTimeSelection', '30d')">30d</div>
   </div>
 </template>
 
@@ -38,18 +39,15 @@ export default {
   font-size: 0.6rem;
 }
 
-.active {
-  
-}
-
-.active > .option-wrapper-right {
-  
-}
-
 .option-wrapper-left {
   border-radius: 6px 0 0 6px;
   border-left: 1px solid #a8a8a8;
-  border-right: 1px solid #106bdb;
+  border-right: 0px;
+}
+
+.option-wrapper-middle {
+  border-right: 1px solid #a8a8a8;
+  border-left: 1px solid #a8a8a8;
 }
 
 .option-wrapper-right {
@@ -62,10 +60,27 @@ export default {
   transition: all .2s ease-out;
 }
 
+
+
 .active {
   color: #106bdb;
   border-color: #106bdb;
+}
 
+.inactive {
+  border-color: #a8a8a8;
+}
+
+.inactive.option-wrapper-middle {
+  border-color: #a8a8a8;
+}
+
+.active_left > .option-wrapper-middle {
+  border-left: 1px solid #106bdb;
+}
+
+.active_right > .option-wrapper-middle {
+  border-right: 1px solid #106bdb;
 }
 
 </style>

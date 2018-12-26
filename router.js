@@ -4,7 +4,11 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const Rankings = () => import('~/pages/rankings.vue').then(m => m.default || m)
+const AppDetail = () => import('~/pages/app_detail.vue').then(m => m.default || m)
+const AppSubmit = () => import('~/pages/app_submit.vue').then(m => m.default || m)
+const AppEdit = () => import('~/pages/app_edit.vue').then(m => m.default || m)
 const Documentation = () => import('~/pages/documentation.vue').then(m => m.default || m)
+const TOS = () => import('~/pages/tos.vue').then(m => m.default || m)
 
 const scrollBehavior = function(to, from, savedPosition) {
   // if the returned position is falsy or an empty object,
@@ -72,9 +76,33 @@ export function createRouter() {
         name: 'rankings-type'
       },
       {
+        path: '/apps/',
+        redirect: '/'
+      },
+      {
+        path: '/apps/:name',
+        component: AppDetail,
+        name: 'app-detail'
+      },
+      {
+        path: '/apps/submit/new',
+        component: AppSubmit,
+        name: 'apps-new'
+      },
+      {
+        path: '/apps/edit/:name',
+        component: AppEdit,
+        name: 'apps-edit'
+      },
+      {
         path: '/documentation',
         component: Documentation,
         name: 'documentation'
+      },
+      {
+        path: '/tos',
+        component: TOS,
+        name: 'tos'
       },
       /*{
         path: '/about',
