@@ -4843,6 +4843,11 @@ moment@^2.21.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
   integrity sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=
 
+moment@^2.23.0:
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.23.0.tgz#759ea491ac97d54bac5ad776996e2a58cc1bc225"
+  integrity sha512-3IE39bHVqFbWWaPOMHZF98Q9c3LDKGTmypMiTM2QygGXXElkFWIH7GxfmlwmY2vwa+wmNsoYZmG2iusf1ZjJoA==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -7733,6 +7738,11 @@ vue-clickaway@^2.2.2:
   dependencies:
     loose-envify "^1.2.0"
 
+vue-flash-message@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/vue-flash-message/-/vue-flash-message-0.7.2.tgz#0668d6fa9fc70c65fd5c6ec246a415786960c34d"
+  integrity sha512-swOK9PxlWKzt1zzAMJX4YMU2O3kS0JznbwLy8burtKK2vibYc7ODRiEdAVnxRDQ09TG4tElVeO3hwwGDxQktaw==
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"
@@ -7769,6 +7779,11 @@ vue-no-ssr@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-1.1.0.tgz#b323807112f676324d9d7cfde85d7831ced11dd9"
   integrity sha512-prJ9czuPrVu0GhUZKTS/epFfM15QjLuG6wt61g0nyixPXk0g6eY7wNF4RKIqJsxomOiuSYTv3Zo8A43Vi93xfw==
+
+vue-notification@^1.3.14:
+  version "1.3.14"
+  resolved "https://registry.yarnpkg.com/vue-notification/-/vue-notification-1.3.14.tgz#6717f9127bb34ed1e95d93644359421659680515"
+  integrity sha512-rtqCspGydHbT+HhaTJcREcSKTrWJM8tFPbo5W3UdpSEEKz0O9pLtxeh5OMTCVb5JrEvhOL3AuUroMdVtFb3Onw==
 
 vue-ref@^1.0.2:
   version "1.0.2"
@@ -7819,6 +7834,11 @@ vue@^2.5.17:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
   integrity sha512-mFbcWoDIJi0w0Za4emyLiW72Jae0yjANHbCVquMKijcavBGypqlF7zHRgMa5k4sesdv7hv2rB4JPdZfR+TPfhQ==
+
+vuetrend@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/vuetrend/-/vuetrend-0.3.2.tgz#13100862ded562c78d3704c3865cd38c582e586a"
+  integrity sha512-nXza0yeoynEdrdV8RKStHA0KykPyVXNHjcQOqxc+5rW5051V3RMrsI9ob1+kiJM8azoww6t6XiC/+AS7aiqEew==
 
 vuex@^3.0.1:
   version "3.0.1"

@@ -73,7 +73,6 @@ const mutations = {
     Vue.set(state, 'display_columns', display_columns)
   },
   setTimeSelection(state, { selection, converted }) {
-
     Vue.set(state, 'time_selection', selection)
     Vue.set(state, 'time_selection_converted', converted)
   },

@@ -6,3 +6,11 @@ export function isValidEmail (email) {
   return re.test(email)
 }
 /* eslint-enable */
+
+export function convertMissing(x) {
+  if(x === 'app') {
+    return 'App Name'
+  } else if(x === 'short_description') {
+    return 'Short Description'
+  }
+}

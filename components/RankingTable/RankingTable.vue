@@ -15,6 +15,10 @@
             <div v-if="display_columns.rank_7d" class="table-head col-rank">
               <RankHead :sort="true" :time="'last_week'"/>
             </div>
+            <div v-if="display_columns.rank_30d" class="table-head col-rank">
+              <RankHead :sort="true" :time="'last_month'"/>
+            </div>
+
             <div v-if="display_columns.name" class="table-head col-name">
               <NameHead/>
             </div>
@@ -24,41 +28,65 @@
             <div v-if="display_columns.category" class="table-head col-category">
               <CategoryHead/>
             </div>
+
             <div v-if="display_columns.users_24h" class="table-head col-dau">
               <DauHead :sort="true" :time="'last_day'"/>
             </div>
             <div v-if="display_columns.users_7d" class="table-head col-dau">
               <DauHead :sort="true" :time="'last_week'"/>
             </div>
+            <div v-if="display_columns.users_30d" class="table-head col-dau">
+              <DauHead :sort="true" :time="'last_month'"/>
+            </div>
+
             <div v-if="display_columns.tx_24h" class="table-head col-tx">
               <TxHead :sort="true" :time="'last_day'"/>
             </div>
             <div v-if="display_columns.tx_7d" class="table-head col-tx col-tx-7d">
               <TxHead :sort="true" :time="'last_week'"/>
             </div>
+            <div v-if="display_columns.tx_30d" class="table-head col-tx col-tx-7d">
+              <TxHead :sort="true" :time="'last_month'"/>
+            </div>
+
             <div v-if="display_columns.volume_steem_24h" class="table-head col-vol">
               <VolumeHead :sort="true" :asset="'STEEM'" :time="'last_day'"/>
             </div>
             <div v-if="display_columns.volume_steem_7d" class="table-head col-vol">
               <VolumeHead :sort="true" :asset="'STEEM'" :time="'last_week'"/>
             </div>
+            <div v-if="display_columns.volume_steem_30d" class="table-head col-vol">
+              <VolumeHead :sort="true" :asset="'STEEM'" :time="'last_month'"/>
+            </div>
+
             <div v-if="display_columns.volume_sbd_24h" class="table-head col-vol col-vol-sbd">
               <VolumeHead :sort="true" :asset="'SBD'" :time="'last_day'"/>
             </div>
             <div v-if="display_columns.volume_sbd_7d" class="table-head col-vol col-vol-sbd">
               <VolumeHead :sort="true" :asset="'SBD'" :time="'last_week'"/>
             </div>
+            <div v-if="display_columns.volume_sbd_30d" class="table-head col-vol col-vol-sbd">
+              <VolumeHead :sort="true" :asset="'SBD'" :time="'last_month'"/>
+            </div>
+
             <div v-if="display_columns.rewards_steem_24h" class="table-head col-rewards col-rewards-steem">
               <RewardsHead :sort="true" :asset="'STEEM'" :time="'last_day'"/>
             </div>
             <div v-if="display_columns.rewards_steem_7d" class="table-head col-rewards col-rewards-steem">
               <RewardsHead :sort="true" :asset="'STEEM'" :time="'last_week'"/>
             </div>
+            <div v-if="display_columns.rewards_steem_30d" class="table-head col-rewards col-rewards-steem">
+              <RewardsHead :sort="true" :asset="'STEEM'" :time="'last_month'"/>
+            </div>
+
             <div v-if="display_columns.rewards_sbd_24h" class="table-head col-rewards col-rewards-sbd">
               <RewardsHead :sort="true" :asset="'SBD'" :time="'last_day'"/>
             </div> 
             <div v-if="display_columns.rewards_sbd_7d" class="table-head col-rewards col-rewards-sbd">
               <RewardsHead :sort="true" :asset="'SBD'" :time="'last_week'"/>
+            </div>
+            <div v-if="display_columns.rewards_sbd_30d" class="table-head col-rewards col-rewards-sbd">
+              <RewardsHead :sort="true" :asset="'SBD'" :time="'last_month'"/>
             </div> 
           </div>
         </div>
@@ -76,17 +104,21 @@
               :key="app._id"
               class="table-row">
               <div v-if="display_columns.rank_24h" class="table-data col-rank">
-                <RankBody :rank="app.rank.last_day || apps.indexOf(app) + 1"/>
+                <RankBody :rank="app.rank.last_day || apps.length + 1"/>
               </div>
               <div v-if="display_columns.rank_7d" class="table-data col-rank">
-                <RankBody :rank="app.rank.last_week || apps.indexOf(app) + 1"/>
+                <RankBody :rank="app.rank.last_week || apps.length + 1"/>
+              </div>
+              <div v-if="display_columns.rank_30d" class="table-data col-rank">
+                <RankBody :rank="app.rank.last_month || apps.length + 1"/>
               </div>
               <div v-if="display_columns.name" class="table-data col-name">
                 <NameBody
                   :image="app.image"
                   :name="app.name"
+                  :short_description="app.short_description"
                   :description="app.description"
-                  :main_account="app.main_account"
+                  :logo_account="app.accounts.filter(x => x.logo)[0]"
                   :display_name="app.display_name"
                   :link="app.link"
                   :ref_link="app.ref_link"
@@ -121,6 +153,14 @@
                   :value="app.dau.last_week"
                   :value_pct="app.dau.change_last_week"/>
               </div>
+              <div v-if="display_columns.users_30d" class="table-data col-dau col-dau-30d">
+                <media :query="{maxWidth: min_width_header }">
+                  <span>Users 30d</span>
+                </media>
+                <ValueBody
+                  :value="app.dau.last_month"
+                  :value_pct="app.dau.change_last_month"/>
+              </div>
               <!-- TX -->
               <div v-if="display_columns.tx_24h" class="table-data col-tx">
                 <media :query="{maxWidth: min_width_header }">
@@ -137,6 +177,14 @@
                 <ValueBody
                   :value="app.tx.last_week"
                   :value_pct="app.tx.change_last_week"/>
+              </div>
+              <div v-if="display_columns.tx_30d" class="table-data col-tx col-tx-30d">
+                <media :query="{maxWidth: min_width_header }">
+                  <span>Tx (30D)</span>
+                </media>
+                <ValueBody
+                  :value="app.tx.last_month"
+                  :value_pct="app.tx.change_last_month"/>
               </div>
               <!-- Volume STEEM -->
               <div v-if="display_columns.volume_steem_24h" class="table-data col-vol">
@@ -157,6 +205,15 @@
                   :value="app.volume.steem.last_week"
                   :value_pct="app.volume.steem.change_last_week"/> 
               </div>
+              <div v-if="display_columns.volume_steem_30d" class="table-data col-vol">
+                <media :query="{maxWidth: min_width_header }">
+                  <span>Volume STEEM</span>
+                </media>
+                <VolumeBody
+                  :asset="'STEEM'"
+                  :value="app.volume.steem.last_month"
+                  :value_pct="app.volume.steem.change_last_month"/> 
+              </div>
               <!-- Volume SBD -->
               <div v-if="display_columns.volume_sbd_24h" class="table-data col-vol col-vol-sbd">
                 <media :query="{maxWidth: min_width_header }">
@@ -175,6 +232,15 @@
                   :asset="'SBD'"
                   :value="app.volume.sbd.last_week"
                   :value_pct="app.volume.sbd.change_last_week"/>
+              </div>
+              <div v-if="display_columns.volume_sbd_30d" class="table-data col-vol col-vol-sbd">
+                <media :query="{maxWidth: min_width_header }">
+                  <span>Volume SBD</span>
+                </media>
+                <VolumeBody
+                  :asset="'SBD'"
+                  :value="app.volume.sbd.last_month"
+                  :value_pct="app.volume.sbd.change_last_month"/>
               </div>
               <!-- Rewards STEEM -->
               <div v-if="display_columns.rewards_steem_24h" class="table-data col-rewards col-rewards-steem">
@@ -195,6 +261,15 @@
                   :value="app.rewards.steem.last_week"
                   :value_pct="app.rewards.steem.change_last_week"/>
               </div>
+              <div v-if="display_columns.rewards_steem_30d" class="table-data col-rewards col-rewards-steem">
+                <media :query="{maxWidth: min_width_header }">
+                  <span>Rewards STEEM</span>
+                </media>
+                <VolumeBody
+                  :asset="'STEEM'"
+                  :value="app.rewards.steem.last_month"
+                  :value_pct="app.rewards.steem.change_last_month"/>
+              </div>
               <!-- Rewards SBD -->
               <div v-if="display_columns.rewards_sbd_24h" class="table-data col-rewards col-rewards-sbd">
                 <media :query="{maxWidth: min_width_header }">
@@ -205,19 +280,23 @@
                   :value="app.rewards.sbd.last_day"
                   :value_pct="app.rewards.sbd.change_last_day"/>
               </div>
-              <div v-if="display_columns.rewards_sbd_7d" class="table-data col-rewards col-rewards-sbd">
+              <div v-if="display_columns.rewards_sbd_30d" class="table-data col-rewards col-rewards-sbd">
                 <media :query="{maxWidth: min_width_header }">
                   <span>Rewards SBD</span>
                 </media>
                 <VolumeBody
                   :asset="'SBD'"
-                  :value="app.rewards.sbd.last_week"
-                  :value_pct="app.rewards.sbd.change_last_week"/>
+                  :value="app.rewards.sbd.last_month"
+                  :value_pct="app.rewards.sbd.change_last_month"/>
               </div>
             </div>
           </template>
         </div>
+        <div class="submit-wrapper">
+          <SubmitButton class="lila_button" :to="'apps-new'"/>
+        </div>
       </div>
+      
       <!--<BasePager
         v-if="!isLoading"
         :limit="pager.limit"
@@ -251,6 +330,8 @@ import RewardsBody from './body/RewardsBody.vue'
 
 import RankingTableTime from './RankingTableTime.vue'
 
+import SubmitButton from '~/components/partials/SubmitButton'
+
 import Media from 'vue-media'
 import { mapGetters } from 'vuex'
 
@@ -281,7 +362,7 @@ export default {
     }
   },
   components: {
-    Media, ValueBody, RankHead, DauHead, TxHead, NameHead, VolumeHead, CategoryHead, RankBody, DauBody, TxBody, NameBody, VolumeBody, CategoryBody, AppTypeHead, AppTypeBody, RewardsHead, RewardsBody, RankingTableTime
+    SubmitButton, Media, ValueBody, RankHead, DauHead, TxHead, NameHead, VolumeHead, CategoryHead, RankBody, DauBody, TxBody, NameBody, VolumeBody, CategoryBody, AppTypeHead, AppTypeBody, RewardsHead, RewardsBody, RankingTableTime
   }
 }
 </script>
@@ -291,6 +372,13 @@ export default {
 .table {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.submit-wrapper {
+  display:flex;
+  justify-content: flex-end;
+  margin-right:15px;
+  margin-top:15px;
 }
 
 .label-category {
@@ -336,7 +424,7 @@ export default {
 }
 
 .col-vol {
-  width: 125px;
+  width: 130px;
   text-align: right;
   padding: 0 10px;
 }

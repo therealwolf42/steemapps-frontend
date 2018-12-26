@@ -75,6 +75,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '~assets/css/settings';
+
 
 </style>

@@ -1,30 +1,24 @@
 <template>
   <div class="component-ranking-table-name">
     <div class="icon-wrapper">
-      <a :href="`${link}${ref_link ? ref_link : ''}`"
-      target="_blank"
+      <nuxt-link
       :to="{ name: 'app-detail', params: { name } }"
       class="icon-link">
       <img
-        :src="image || `https://steemitimages.com/u/${main_account || name}/avatar`"
-        class="icon-image"
-        width="42"
-        height="42"
-      >
-      </a>
+        :src="image || `https://steemitimages.com/u/${(logo_account && logo_account.name) || name}/avatar`"
+        class="icon-image">
+      </nuxt-link>
     </div>
     <div class="name-description-wrapper">
       <div class="name-description-top-wrapper">
       <h4 class="name">
-        <a :href="`${link}${ref_link ? ref_link + 'steemdapps' /* TO-DO: Make it dynamic */ : ''}`"
-          target="_blank"
+        <nuxt-link
           :to="{ name: 'app-detail', params: { name } }">
-          {{ display_name }}
-        </a>
-        
+          {{ display_name | capitalize }}
+        </nuxt-link>
       </h4>
       </div>
-      <p class="description">{{ description }}</p>
+      <p class="description">{{ short_description || description }}</p>
     </div>
   </div>
 </template>
@@ -40,12 +34,16 @@ export default {
       type: String,
       required: true
     },
+    short_description: {
+      type: String,
+      required: false
+    },
     description: {
       type: String,
       required: true
     },
-    main_account: {
-      type: String,
+    logo_account: {
+      type: Object,
       required: false
     },
     image: {
@@ -84,42 +82,6 @@ export default {
   display:flex;
 }
 
-.icon-image {
-  border-radius: 4px;
-  display: block;
-}
-
-.icon-link {
-  text-decoration: none;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 4px;
-}
-
-.icon-placeholder {
-  background: $color--gray;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  font-size: 1.2rem;
-  border-radius: 4px;
-}
-
-.icon-wrapper {
-  width: 42px;
-  height: 42px;
-  border-radius: 4px;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .description {
   margin: 0;

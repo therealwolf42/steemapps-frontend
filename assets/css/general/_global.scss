@@ -15,6 +15,110 @@ code {
   width:350px;
 }
 
+input, textarea, select {
+  border: none;
+  padding: 16px 20px;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(141, 141, 141, 0.075);
+  border-radius:5px;
+  background: hsla(0,0%,100%,.95);
+  transition: background .2s ease;
+}
+
+textarea {
+  resize: none;
+}
+
+option {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: .85rem;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  margin: 0 -10px;
+  border: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+.input-label {
+  margin-bottom:8px;
+  margin-left:2px;
+  font-weight:700;
+  font-size:1rem;
+}
+
+.required-tag {
+  font-size:0.9rem;
+}
+
+.input-container {
+  display:flex;
+  flex-flow: column;
+  margin-bottom:20px;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding:5px 0;
+  margin-left:5px,
+}
+
+.checkbox {
+  width: fit-content;
+  margin-right:5px;
+  display:flex;
+  margin-top:2px;
+}
+
+
+.vue-notification {
+  padding: 10px;
+  margin: 10px 5px 5px !important;
+
+  font-size: 12px;
+
+  color: #ffffff;
+  background: rgb(74, 153, 255) !important;
+  border-left: 5px solid #187FE7 !important;
+
+  &.notify {
+    background: #ffb648;
+    border-left-color: #f48a06;
+  }
+
+  &.warn {
+    background: #ffb648 !important;
+    border-left-color: #f48a06 !important;
+  }
+
+  &.error {
+    background: #E54D42 !important;
+    border-left-color: #B82E24 !important;
+  }
+
+  &.success {
+    background: #68CD86 !important;
+    border-left-color: #42A85F !important;
+  }
+}
+
+::placeholder {
+  opacity: 0.7;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
 @media (max-width: 360px) {
   code {
     width: 100%;

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo'
+import Logo from '~/components/partials/Logo'
 import RankingTableTime from '~/components/RankingTable/RankingTableTime'
 export default {
   components: {
