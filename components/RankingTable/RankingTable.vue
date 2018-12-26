@@ -114,7 +114,7 @@
               </div>
               <div v-if="display_columns.name" class="table-data col-name">
                 <NameBody
-                  :image="app.image"
+                  :logo="app.logo"
                   :name="app.name"
                   :short_description="app.short_description"
                   :description="app.description"

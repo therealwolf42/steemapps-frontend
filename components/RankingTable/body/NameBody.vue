@@ -5,7 +5,7 @@
       :to="{ name: 'app-detail', params: { name } }"
       class="icon-link">
       <img
-        :src="image || `https://steemitimages.com/u/${(logo_account && logo_account.name) || name}/avatar`"
+        :src="logo || `https://steemitimages.com/u/${(logo_account && logo_account.name) ? logo_account.name : name}/avatar`"
         class="icon-image">
       </nuxt-link>
     </div>
@@ -46,7 +46,7 @@ export default {
       type: Object,
       required: false
     },
-    image: {
+    logo: {
       type: String,
       required: false
     },

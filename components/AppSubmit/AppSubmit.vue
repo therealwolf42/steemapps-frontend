@@ -29,7 +29,7 @@
         <div class="input-container">
           <p class="input-label">Logo URL <span class="required-tag"></span></p>
           <p class="input-description">Dimensions must be at least 192x192</p>
-          <input class="input" v-model="app.image" placeholder="https://imgur.com/..."/>
+          <input class="input" v-model="app.logo" placeholder="https://imgur.com/..."/>
         </div>
 
         <div class="input-container">

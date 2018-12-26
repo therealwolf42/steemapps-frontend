@@ -2,7 +2,7 @@
   <div class="component-app-detail">
     <div class="app-detail-container">
       <div class="title-container">
-        <LogoName :name="app.name" :image="app.image" :link="app.link" :display_name="app.display_name" :logo_account="app.accounts.filter(x => x.logo)[0]"/>
+        <LogoName :name="app.name" :logo="app.logo" :link="app.link" :display_name="app.display_name" :logo_account="app.accounts.filter(x => x.logo)[0]"/>
       </div>
       <img :src="app.product_screenshot"> 
       <div class="description">

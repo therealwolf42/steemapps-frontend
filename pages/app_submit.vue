@@ -19,7 +19,7 @@ export default {
       app: {
         name: '',
         link: '',
-        image: '',
+        logo: '',
         custom_json : '',
         product_screenshot: '',
         short_description: '',

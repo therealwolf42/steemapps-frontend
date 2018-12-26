@@ -3,7 +3,7 @@
     <div class="icon-wrapper">
       <a :href="`${link}/?ref=steemdapps`" target="_blank" class="icon-link">
         <img
-          :src="image || `https://steemitimages.com/u/${(logo_account && logo_account.name) || name}/avatar`"
+          :src="logo || `https://steemitimages.com/u/${(logo_account && logo_account.name) ? logo_account.name : name}/avatar`"
           class="icon-image"
           width="42"
           height="42">
@@ -30,7 +30,7 @@ export default {
       type: String,
       required: true
     },
-    image: {
+    logo: {
       type: String,
       required: true
     },
