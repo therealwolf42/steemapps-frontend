@@ -51,6 +51,7 @@ export default {
 
 .component-ranking-table-rewards-head {
   display:flex;
+  justify-content: flex-end;
 }
 
 </style>

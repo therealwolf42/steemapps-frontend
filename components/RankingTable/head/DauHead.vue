@@ -46,6 +46,7 @@ export default {
 
 .component-ranking-table-dau-head {
   display:flex;
+  justify-content: flex-end;
 }
 
 </style>

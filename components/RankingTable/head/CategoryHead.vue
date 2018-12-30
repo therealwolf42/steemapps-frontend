@@ -24,5 +24,6 @@ export default {
 
 .component-ranking-table-category-head {
   display:flex;
+  justify-content: flex-end;
 }
 </style>

@@ -47,6 +47,7 @@ export default {
 
 .component-ranking-table-tx-head {
   display:flex;
+  justify-content: flex-end;
 }
 
 </style>

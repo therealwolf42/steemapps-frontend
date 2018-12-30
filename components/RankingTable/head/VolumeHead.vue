@@ -50,6 +50,7 @@ export default {
 
 .component-ranking-table-volume-head {
   display:flex;
+  justify-content: flex-end;
 }
 
 </style>

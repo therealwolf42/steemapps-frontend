@@ -33,6 +33,7 @@ export default {
 
 .component-ranking-table-app-type-head {
   display:flex;
+  justify-content: flex-end;
 }
 
 .reset-apptype {
