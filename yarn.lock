@@ -5501,6 +5501,11 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
+popper.js@1.12.5:
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.5.tgz#229e4dea01629e1f1a1e26991ffade5024220fa6"
+  integrity sha512-6R2eXIy1xYukMNutoD+y/Gj0IpjEQhivyZonm5Vz0Fp8jdc7kvheKCvpM/t+PxqKb7VbLVnvPVEdTyslEb7f6w==
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -7737,6 +7742,18 @@ vue-clickaway@^2.2.2:
   integrity sha512-25SpjXKetL06GLYoLoC8pqAV6Cur9cQ//2g35GRFBV4FgoljbZZjTINR8g2NuVXXDMLSUXaKx5dutgO4PaDE7A==
   dependencies:
     loose-envify "^1.2.0"
+
+vue-directive-tooltip@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/vue-directive-tooltip/-/vue-directive-tooltip-1.5.0.tgz#362e8013eb7244d8a20e0a1ffb53ac7bfdb9af56"
+  integrity sha512-hHFYs5XrGkojGvWLszEz2+pvf2RIqtXz44TiVrBgck56vEkpYdgSK+yI5ZBSJv0bwPWcT6rHz59ljUXMv9tXug==
+  dependencies:
+    popper.js "1.12.5"
+
+vue-dropdowns@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vue-dropdowns/-/vue-dropdowns-1.0.6.tgz#cc6d086c8e7570768bda1fc598f9e27dd0145d0a"
+  integrity sha512-es1jf3LWmeSBhdMFaQL46ulcVQXMZjmO1KPG71RFImb2WFCukhYT39rb55iV4ZRUNH88lhf5uk+O8gQ+0BxCpw==
 
 vue-flash-message@^0.7.2:
   version "0.7.2"

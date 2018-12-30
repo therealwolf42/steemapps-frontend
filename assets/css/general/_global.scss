@@ -119,6 +119,12 @@ a:focus {
   text-decoration: none;
 }
 
+.vue-tooltip {
+  &.bottom {
+    background-color: #454545;
+  }
+}
+
 @media (max-width: 360px) {
   code {
     width: 100%;

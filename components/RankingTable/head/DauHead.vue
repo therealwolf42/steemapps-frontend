@@ -8,14 +8,21 @@
     <span 
       v-else 
       class="label">Users</span>
+      <Help :tooltip="tooltip"/>
   </div>
 </template>
 
 <script>
+import Help from '~/components/partials/Help'
 export default {
   computed: {
     order() {
       return this.$route.query.sort === 'dau' ? (this.$route.query.order === 'desc' ? 'asc' : 'desc') : 'desc'
+    }
+  },
+  data() {
+    return {
+      tooltip: `DAU are unique users over a specific timeframe, who are either transferring to the app, creating custom_jsons of the app or creating posts/comments with the app. Important: The real number of users can be much higher with specific apps due to missing data, which we're not able to fetch.`
     }
   },
   props: {
@@ -27,10 +34,18 @@ export default {
       type: String,
       required: true
     }
+  },
+  components: {
+    Help
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '~assets/css/settings';
+
+.component-ranking-table-dau-head {
+  display:flex;
+}
 
 </style>

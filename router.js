@@ -76,6 +76,11 @@ export function createRouter() {
         name: 'rankings-type'
       },
       {
+        path: '/category/:category',
+        component: Rankings,
+        name: 'rankings-category'
+      },
+      {
         path: '/apps/',
         redirect: '/'
       },

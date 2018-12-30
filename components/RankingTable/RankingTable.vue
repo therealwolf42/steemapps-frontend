@@ -100,6 +100,7 @@
             v-for="app in apps"
             class="table-row">
             <div
+              @click="goDetail(app.name)"
               v-if="true || app.rank"
               :key="app._id"
               class="table-row">
@@ -122,7 +123,8 @@
                   :display_name="app.display_name"
                   :link="app.link"
                   :ref_link="app.ref_link"
-                  :app_type="app.app_type"/>
+                  :app_type="app.app_type"
+                  :category="app.category"/>
               </div>
               <div v-if="display_columns.app_type" class="table-data col-app-type">
                 <AppTypeBody @click="$store.dispatch('apps/rankings/changeSelectedAppType', `${app.app_type}`)"
@@ -361,6 +363,11 @@ export default {
       min_width_header: 850
     }
   },
+  methods: {
+    goDetail(name) {
+      this.$router.push({ name: 'app-detail', params: { name } })
+    }
+  },
   components: {
     SubmitButton, Media, ValueBody, RankHead, DauHead, TxHead, NameHead, VolumeHead, CategoryHead, RankBody, DauBody, TxBody, NameBody, VolumeBody, CategoryBody, AppTypeHead, AppTypeBody, RewardsHead, RewardsBody, RankingTableTime
   }
@@ -388,6 +395,10 @@ export default {
 .table-data {
   margin: 0;
   text-align: inherit;
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px 0;
 }
 
 .table-head {
@@ -402,7 +413,7 @@ export default {
 }
 
 .col-dau {
-  width: 90px;
+  width: 100px;
   text-align: right;
   padding: 0 10px;
 }
@@ -415,28 +426,31 @@ export default {
 
 .col-name {
   flex: 1;
+  justify-content: flex-start;
 }
 
 .col-app-type {
   width:90px;
   display:flex;
-  justify-content: center;
+  //justify-content: center;
 }
 
 .col-vol {
-  width: 130px;
+  width: 150px;
   text-align: right;
   padding: 0 10px;
 }
 
 .col-rewards {
-  width: 125px;
+  width: 150px;
   text-align: right;
 }
 
 .col-rank {
   width: 50px;
-  margin-right: 15px;
+  margin-right: 12px;
+  background: darken($color--white, 2%);
+  border-right: 1px solid darken($color--gray, 5%);
 }
 
 .table-header {
@@ -451,6 +465,16 @@ export default {
     border-radius: 0;
     background: $color--gray;
     margin-bottom: 0;
+    cursor: initial;
+  }
+
+  .col-rank {
+    background: initial;
+    border-right:none;
+  }
+
+  .table-row:hover {
+    background-color: initial;
   }
 }
 
@@ -460,9 +484,15 @@ export default {
   box-shadow: 0 0 10px rgba($color--black, 0.1);
   margin-bottom: 8px;
   padding-right:15px;
+  min-height: 80px;
   display: flex;
-  flex-flow:row wrap;
-  align-items: center;
+  flex-flow:row nowrap;
+  //align-items: center;
+  cursor: pointer;
+}
+
+.table-row:hover {
+  background-color: #fdfdfd;
 }
 
 .table-top-wrapper {
@@ -487,10 +517,6 @@ export default {
     font-weight: 500;
     border-bottom: 1px solid #c7c7c7;
   }
-}
-
-.col-dau-7d {
-  display:initial;
 }
 
 @media (max-width: 1050px) {

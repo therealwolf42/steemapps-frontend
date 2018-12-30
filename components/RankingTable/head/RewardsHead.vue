@@ -7,15 +7,23 @@
       class="label head-link">Rewards {{ asset }}</nuxt-link>
     <span 
       v-else 
-      class="label">Rewards {{ asset }}</span>
+      class="label">Rewards {{ asset }}
+    </span>
+    <Help :tooltip="tooltip"/>
   </div>
 </template>
 
 <script>
+import Help from '~/components/partials/Help'
 export default {
   computed: {
     order() {
       return this.$route.query.sort === `rewards_${this.asset.toLowerCase()}` ? (this.$route.query.order === 'desc' ? 'asc' : 'desc') : 'desc'
+    }
+  },
+  data() {
+    return {
+      tooltip: 'Rewards are benefactor- & curation-rewards an app generates.'
     }
   },
   props: {
@@ -31,10 +39,18 @@ export default {
       type: String,
       required: true
     }
+  },
+  components: {
+    Help
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '~assets/css/settings';
+
+.component-ranking-table-rewards-head {
+  display:flex;
+}
 
 </style>

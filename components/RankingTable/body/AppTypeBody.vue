@@ -1,12 +1,13 @@
 <template>
   <div class="component-ranking-table-apptype">
-    <nuxt-link
+    <!--<a
       v-if="app_type"
       :to="{ name: 'rankings-type', params: { type: app_type.toLowerCase() }}">
       <div :class="`is-${app_type}`" class="is-general">
         {{ app_type | capitalize }}
       </div>
-    </nuxt-link>
+    </a>-->
+    <span class="is-general">{{ app_type | capitalize }}</span>
   </div>
 </template>
 
@@ -25,7 +26,8 @@ export default {
 @import '~assets/css/settings';
 
 .is-general {
-  font-size: 0.7rem;
+  // Old Design
+  /*font-size: 0.7rem;
   padding: 3px 15px 4.5px 15px;
   border-radius: 20px;
   color: white;
@@ -33,33 +35,33 @@ export default {
   width: fit-content;
   width:78px;
   text-align:center;
-  transition: all .2s ease-out;
+  transition: all .2s ease-out;*/
 }
 
 .is-dapp {
   /* border: 1px solid #cb57eabf; */
-  background-color: #bc17ff;
+  color: #bc17ff;
 }
 
 .is-dapp:hover {
-  background-color: #c330fd;
+  color: #c330fd;
 }
 
 .is-interface {
-  background-color: #27a4fd;
-  font-size: 0.75rem;
+  color: #27a4fd;
+  //font-size: 0.75rem;
 }
 
 .is-interface:hover {
-  background-color: #33aaff;
+  color: #33aaff;
 }
 
 .is-app {
-  background-color: #6717ff;
+  color: #6717ff;
 }
 
 .is-app {
-  background-color: #762cff;
+  color: #762cff;
 }
 
 .is-general {
