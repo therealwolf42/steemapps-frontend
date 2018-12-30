@@ -2,8 +2,7 @@
   <div
     :class="'rank-' + rank"
     class="component-ranking-table-rank">
-    <span
-      class="value"><span class="before-rank">#</span>{{ rank }}</span>
+    {{ rank }}
   </div>
 </template>
 
@@ -36,11 +35,11 @@ export default {
 
 .component-ranking-table-rank {
   font-weight: 700;
+  width: 100%;
   padding: 0;
-  background: darken($color--white, 2%);
-  border-right: 1px solid darken($color--gray, 5%);
+  
   display: flex;
-  height: 80px;
+
   align-items: center;
   justify-content: center;
   border-top-left-radius: 4px;

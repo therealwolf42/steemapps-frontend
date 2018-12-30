@@ -6,15 +6,22 @@
     :class="!$route.query.sort || $route.query.sort === 'rank' && $route.query.time === time ? 'is-active' : ''"
     class="label head-link">
     Rank</nuxt-link>
+    <Help :tooltip="tooltip"/>
   </div>
 </template>
 
 <script>
 
+import Help from '~/components/partials/Help'
 export default {
   computed: {
     order() {
       return this.$route.query.sort === 'rank' ? (this.$route.query.order === 'desc' ? 'asc' : 'desc') : 'asc'
+    }
+  },
+  data() {
+    return {
+      tooltip: 'The rank is calculated from different metrics (incl. DAU, Transactions, Volume, Rewards, Steempower & more). Keep in mind: the rank is not an exact metric to determine the value of an app.'
     }
   },
   props: {
@@ -26,6 +33,9 @@ export default {
       type: String,
       required: true
     }
+  },
+  components: {
+    Help
   }
 }
 </script>
@@ -35,5 +45,6 @@ export default {
 
 .component-ranking-table-rank-head {
   text-align: center;
+  display:flex;
 }
 </style>

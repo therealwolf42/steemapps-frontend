@@ -29,7 +29,7 @@ export default {
 .option-wrapper {
   display:flex;
   flex: 1;
-  padding:5px 18px;
+  padding:6px 18px;
   cursor:pointer;
   background-color:#fafafa;
   border-top: 1px solid #a8a8a8;

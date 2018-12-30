@@ -7,15 +7,23 @@
       class="label head-link">Transactions</nuxt-link>
     <span 
       v-else 
-      class="label">Transactions</span>
+      class="label">Transactions
+    </span>
+    <Help :tooltip="tooltip"/>
   </div>
 </template>
 
 <script>
+import Help from '~/components/partials/Help'
 export default {
   computed: {
     order() {
       return this.$route.query.sort === 'tx' ? (this.$route.query.order === 'desc' ? 'asc' : 'desc') : 'desc'
+    }
+  },
+  data() {
+    return {
+      tooltip: 'Transactions are all actions users of an app make, that are recorded on the blockchain and which can be pinned to a specific app (posts, comments, incoming transfers & custom_jsons). Outgoing transfers from users as well as votes are not able to be pinned to a specific app.'
     }
   },
   props: {
@@ -27,10 +35,18 @@ export default {
       type: String,
       required: true
     }
+  },
+  components: {
+    Help
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '~assets/css/settings';
+
+.component-ranking-table-tx-head {
+  display:flex;
+}
 
 </style>
