@@ -14,6 +14,13 @@ export default {
       return this.$store.getters['apps/rankings/time_selection']
     }
   },
+  created() {
+    if(this.$route.query && this.$route.query.time) {
+      let time = this.$route.query.time
+      time = time === 'last_month' ? '30d' : (time === 'last_day' ? '24h' : '7d')
+      this.$store.dispatch('apps/rankings/changeTimeSelection', time)
+    }
+  }
 }
 </script>
 

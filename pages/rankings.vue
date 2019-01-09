@@ -50,13 +50,11 @@ export default {
   },
   watch: {
     '$route.query'() {
-      //this.$refs.table.scrollIntoView()
       this.fetchApps()
     }
   },
   methods: {
     async fetchApps() {
-      //this.resetData()
       this.isLoading = true
       const urlParams = { ...this.$route.params, ...this.$route.query }
 
