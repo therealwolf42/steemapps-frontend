@@ -105,13 +105,19 @@
               :key="app._id"
               class="table-row">
               <div v-if="display_columns.rank_24h" class="table-data col-rank">
-                <RankBody :rank="app.rank.last_day || apps.length + 1"/>
+                <RankBody
+                  :rank="app.rank.last_day || apps.length + 1"
+                  :past_rank="app.rank.before_last_day"/>
               </div>
               <div v-if="display_columns.rank_7d" class="table-data col-rank">
-                <RankBody :rank="app.rank.last_week || apps.length + 1"/>
+                <RankBody
+                  :rank="app.rank.last_week || apps.length + 1"
+                  :past_rank="app.rank.before_last_week"/>
               </div>
               <div v-if="display_columns.rank_30d" class="table-data col-rank">
-                <RankBody :rank="app.rank.last_month || apps.length + 1"/>
+                <RankBody
+                  :rank="app.rank.last_month || apps.length + 1"
+                  :past_rank="app.rank.before_last_month"/>
               </div>
               <div v-if="display_columns.name" class="table-data col-name">
                 <NameBody
