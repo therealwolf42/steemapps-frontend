@@ -1,16 +1,20 @@
 <template>
-  <LayoutMain>
-    <RankingTable
-      :apps="apps"
-      :is-loading="isLoading"
-    />
-  </LayoutMain>
+  <div>
+    <!--<Header/>-->
+    <LayoutMain>
+      <RankingTable
+        :apps="apps"
+        :is-loading="isLoading"
+      />
+    </LayoutMain>
+  </div>
 </template>
 
 <script>
 import { getApps } from '~/helpers/api'
-import RankingTable from '~/components/RankingTable/RankingTable'
-import RankingTableTime from '~/components/RankingTable/RankingTableTime'
+import RankingTable from '~/components/rankingTable/RankingTable'
+import RankingTableTime from '~/components/rankingTable/RankingTableTime'
+import Header from '~/components/header/Header.vue'
 import LayoutMain from '~/components/LayoutMain'
 
 import { mapGetters } from 'vuex'
@@ -30,7 +34,7 @@ export default {
     }
   },
   components: {
-    RankingTable, LayoutMain, RankingTableTime
+    RankingTable, LayoutMain, RankingTableTime, Header
   },
   data() {
     return {

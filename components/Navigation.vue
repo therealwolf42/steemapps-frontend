@@ -28,7 +28,7 @@
 
 <script>
 import Logo from '~/components/partials/Logo'
-import RankingTableTime from '~/components/RankingTable/RankingTableTime'
+import RankingTableTime from '~/components/rankingTable/RankingTableTime'
 import Dropdown from '~/components/partials/Dropdown'
 export default {
   components: {

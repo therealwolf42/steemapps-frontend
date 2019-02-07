@@ -183,6 +183,10 @@ export default {
           name: 'logo',
           desc: `The account's image be used as logo (unique)`
         },
+        {
+          name: 'account_creator',
+          desc: `The account is being used to actively create accounts`
+        },
       ]
     }
   },
