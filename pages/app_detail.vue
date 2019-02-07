@@ -6,7 +6,7 @@
 
 <script>
 import LayoutMain from '~/components/LayoutMain'
-import AppDetail from '~/components/appDetail/AppDetail'
+import AppDetail from '~/components/AppDetail/AppDetail'
 import { getApp } from '~/helpers/api'
 
 export default {

@@ -6,7 +6,7 @@
 
 <script>
 import LayoutMain from '~/components/LayoutMain'
-import AppSubmit from '~/components/appSubmit/AppSubmit'
+import AppSubmit from '~/components/AppSubmit/AppSubmit'
 import { getCategories } from '~/helpers/api'
 
 export default {
