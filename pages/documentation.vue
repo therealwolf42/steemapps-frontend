@@ -6,7 +6,7 @@
 
 <script>
 import LayoutMain from '~/components/LayoutMain'
-import Documentation from '~/components/Documentation/Documentation'
+import Documentation from '~/components/documentation/Documentation'
 export default {
   components: {
     LayoutMain, Documentation

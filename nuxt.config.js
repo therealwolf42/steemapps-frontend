@@ -14,7 +14,10 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
-
+  router: {
+    // Run the middleware/user-agent.js on every page
+    middleware: 'redirect'
+  },
   /*
   ** Global CSS
   */
@@ -32,6 +35,7 @@ module.exports = {
     { src: '~/plugins/axios' },
     { src: '~/plugins/vue-notification', ssr: false },
     { src: '~/plugins/vue-tooltip' },
+    //{ src: '~/plugins/route' }
     //{ src: '~/plugins/vue-dropdowns', ssr: false }
   ],
 

@@ -60,7 +60,7 @@ const scrollBehavior = function(to, from, savedPosition) {
 }
 
 export function createRouter() {
-  return new Router({
+  const router = new Router({
     mode: 'history',
     base: '/',
     scrollBehavior,
@@ -123,4 +123,7 @@ export function createRouter() {
     ],
     fallback: false
   })
+
+
+  return router
 }
