@@ -27,15 +27,20 @@
         </div>
 
         <div class="input-container">
+          <p class="input-label">Referral link <span class="required-tag"></span></p>
+          <input class="input" v-model="app.ref_link" placeholder="?ref="/>
+        </div>
+
+        <div class="input-container">
           <p class="input-label">Logo URL <span class="required-tag"></span></p>
           <p class="input-description">Dimensions must be at least 192x192</p>
-          <input class="input" v-model="app.logo" placeholder="https://imgur.com/..."/>
+          <input class="input" v-model="app.logo" placeholder="https://imgur.com/...png"/>
         </div>
 
         <div class="input-container">
           <p class="input-label">Product Screenshot URL <span class="required-tag"></span></p>
           <p class="input-description">Dimensions must be 1200x600</p>
-          <input class="input" v-model="app.product_screenshot" placeholder="https://imgur.com/..."/>
+          <input class="input" v-model="app.product_screenshot" placeholder="https://imgur.com/...png"/>
         </div>
 
         <div class="input-container">
@@ -186,14 +191,13 @@ export default {
         {
           name: 'account_creator',
           desc: `The account is being used to actively create accounts`
-        },
+        }
       ]
     }
   },
   methods: {
     setStatus(status) {
       this.app.status = status
-
     },
     addAccount() {
       this.app.accounts.push({

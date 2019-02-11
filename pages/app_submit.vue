@@ -19,13 +19,13 @@ export default {
       app: {
         name: '',
         link: '',
+        ref_link: '',
         logo: '',
         custom_json : '',
         product_screenshot: '',
         short_description: '',
         description: '',
         status: '',
-        
         app_type: '',
         category: '',
         social: {

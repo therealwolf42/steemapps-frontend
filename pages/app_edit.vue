@@ -19,6 +19,7 @@ export default {
       steem_app: {
         name: '',
         link: '',
+        ref_link: '',
         logo: '',
         custom_json : '',
         product_screenshot: '',

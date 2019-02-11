@@ -2,13 +2,13 @@
   <div class="component-app-detail">
     <div class="app-detail-container">
       <div class="title-container">
-        <LogoName :name="app.name" :logo="app.logo" :link="app.link" :display_name="app.display_name" :logo_account="app.accounts.filter(x => x.logo)[0]"/>
+        <LogoName :name="app.name" :logo="app.logo" :link="`${ app.link }${ app.ref_link ? `/${app.ref_link}steemdapps` : ''}`" :display_name="app.display_name" :logo_account="app.accounts.filter(x => x.logo)[0]"/>
       </div>
       <img :src="app.product_screenshot"> 
       <div class="description">
         {{ app.description }}
       </div>
-      <a :href="`${app.link}/?ref=steemdapps`" target="_blank">
+      <a :href="`${ app.link }${ app.ref_link ? `/${app.ref_link}steemdapps` : ''}`" target="_blank">
         <div class="button lila_button">Launch App</div>
       </a>
       <div class="button button_disabled dark_blue_button" :disabled="true">
